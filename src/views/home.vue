@@ -151,4 +151,11 @@ export default {
 		text-align: center;
 		border-top: 1px solid #f4f4f4;
 	}
+	.pic-row {
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		align-items: center;
+	}
 </style>
