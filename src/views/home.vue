@@ -34,12 +34,18 @@
 	  			<p class="pic-form-title">上传身份证正反面照</p>
 	  			<div class="pic-row">
 		            <div class="img_wp">
-						<img :src="indexIdCardBgFront"/>
+						<div class="img-item">
+							<img :src="indexIdCardBgFront"/>
+							<input type="file" class="pic-input" @change="picFrontChange">
+						</div>						
  						<p class="img_intro">身份证正面照</p>
 		            </div>
 
 		            <div class="img_wp" onclick="fanmian()">
-		                <img :src="indexIdCardBgBack"/>
+						<div class="img-item">
+		                	<img :src="indexIdCardBgBack"/>
+							<input type="file" class="pic-input">
+						</div>
 		                <p class="img_intro">身份证反面照</p>
 		            </div>
 	  			</div>
@@ -84,7 +90,10 @@ export default {
   methods:{
 	...mapActions([
 		'updateNavaInfoBy'
-	])
+	]),
+	picFrontChange: function(e){
+		console.log(e.target.files[0])
+	}
   },
   components: {
     "index-header": IndexHeader
@@ -113,7 +122,7 @@ export default {
 		border-radius: 1.333334vw;
 		background-color: #f3f3f3;
 		border: 1px solid #ccc;
-		over-flow: hidden;
+		overflow: hidden;
 	}
 	.form-control {
 		width: 100%;
@@ -157,5 +166,29 @@ export default {
 		flex-direction: row;
 		justify-content: space-around;
 		align-items: center;
+	}
+	.img_wp {
+		flex: 1 auto;
+		margin: 0 4vw;
+	}
+	.img-item {
+		width: 100%;
+		height: 25.6vw;
+		position: relative;
+	}
+	.img-item img {
+		max-width: 100%;
+		max-height: 100%;
+		position: relative;
+		z-index: 10;
+	}
+	.pic-input {
+		width: 100%;
+		height: 100%;
+		top:0;
+		left: 0;
+		position: absolute;
+		z-index: 20;
+		opacity: 0;
 	}
 </style>

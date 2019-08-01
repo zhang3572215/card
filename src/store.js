@@ -5,12 +5,12 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-	navaInfo:{
-	  navaTitle: '申请实名认证',
-      haveJump:false,
-      rightLink:'',
-      linkText:'',
-	}
+    navaInfo:{
+      navaTitle: '申请实名认证',
+        haveJump:false,
+        rightLink:'',
+        linkText:'',
+    }
   },
   mutations: {
 	CREAT_NAVA_INFO (state, data) {
