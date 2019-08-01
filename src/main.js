@@ -5,8 +5,7 @@ import router from './router'
 import store from './store'
 import './plugins/element.js'
 import images from './static/image-path'
-import './static/common.css'
-import './font/FontIcon.css'
+
 
 Vue.config.productionTip = false
 

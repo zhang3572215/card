@@ -3,9 +3,9 @@ export default {
     state: {
       navaInfo:{
         navaTitle: '申请实名认证',
-          haveJump:false,
-          rightLink:'',
-          linkText:'',
+        haveJump:false,
+        rightLink:'',
+        linkText:'',
       }
     },
     mutations: {

@@ -36,20 +36,29 @@
 		            <div class="img_wp">
 						<div class="img-item">
 							<img :src="indexIdCardBgFront"/>
-							<input type="file" class="pic-input" @change="picFrontChange">
-						</div>						
+							<input type="file" class="pic-input" @change="picFrontChange"/>
+						</div>		
  						<p class="img_intro">身份证正面照</p>
 		            </div>
-
-		            <div class="img_wp" onclick="fanmian()">
+		            <div class="img_wp">
 						<div class="img-item">
 		                	<img :src="indexIdCardBgBack"/>
-							<input type="file" class="pic-input">
+							<input type="file" class="pic-input" @change="picBackChange"/>
 						</div>
 		                <p class="img_intro">身份证反面照</p>
 		            </div>
 	  			</div>
+				<p class="pic-form-title">上传手持身份证照</p>
+				<div class="pic-col">
+					<div class="img-hold-item">
+						<img :src="indexIdCardBghHold"/>
+						<input type="file" class="pic-input" @change="picHoldChange"/>
+					</div>
+				</div>
 	  		</div>
+			<div class="home-btn-group">
+				<button type="button" class="btn btn-primary" @click="submitForm">提交申请</button>
+			</div>
 	  	</form>
   	</div>
   </div>  
@@ -62,20 +71,22 @@ export default {
   name: 'home',
   data (){
   	return {
-  	  submitData:{
-  	  	cardNumber: '',
-		userName: '',
-		phone:'',
-		userIdCard:'',
-		idCardFront:'',
-		idCardBack:''
-  	  },
-  	  indexIdCardBgFront:this.imgs.indexIdCardBgFront,
-  	  indexIdCardBgBack:this.imgs.indexIdCardBgBack
+		submitData:{
+			cardNumber: '',
+			userName: '',
+			phone:'',
+			userIdCard:'',
+			idCardFront:'',
+			idCardBack:'',
+			idCardHold:''
+		},
+		indexIdCardBgFront:this.imgs.indexIdCardBgFront,
+		indexIdCardBgBack:this.imgs.indexIdCardBgBack,
+		indexIdCardBghHold:this.imgs.indexIdCardBghHold
   	}
   },
   computed: {
-  	...mapState([
+  	...mapState('homeData',[
 		'navaInfo'
   	])
   },
@@ -88,11 +99,26 @@ export default {
 	})
   },
   methods:{
-	...mapActions([
+	...mapActions('homeData',[
 		'updateNavaInfoBy'
 	]),
 	picFrontChange: function(e){
 		console.log(e.target.files[0])
+		this.indexIdCardBgFront = URL.createObjectURL(e.target.files[0])
+		this.submitData.idCardFront = e.target.files[0]
+	},
+	picBackChange: function(e){
+		console.log(e.target.files[0])
+		this.indexIdCardBgBack = URL.createObjectURL(e.target.files[0])
+		this.submitData.idCardBack = e.target.files[0]
+	},
+	picHoldChange:function(e){
+		console.log(e.target.files[0])
+		this.indexIdCardBghHold = URL.createObjectURL(e.target.files[0])
+		this.submitData.idCardHold = e.target.files[0]
+	},
+	submitForm: function () {
+		this.$router.push('/user')
 	}
   },
   components: {
@@ -100,8 +126,8 @@ export default {
   }
 }
 </script>
-<style>
-	.container {
+<style scoped>
+ 	.container {
 		width: 100%;
 		margin-top: 11.733333vw;
 		padding: 4vw 0;
@@ -169,12 +195,18 @@ export default {
 	}
 	.img_wp {
 		flex: 1 auto;
+		width: 50%;
 		margin: 0 4vw;
 	}
 	.img-item {
 		width: 100%;
 		height: 25.6vw;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 		position: relative;
+		background-color: #f5f5f5;
 	}
 	.img-item img {
 		max-width: 100%;
@@ -190,5 +222,44 @@ export default {
 		position: absolute;
 		z-index: 20;
 		opacity: 0;
+	}
+	.img_intro {
+		font-size: 4vw;
+		line-height: 8vw;
+		color: #333;
+	}
+	.pic-col {
+		width: 100%;
+		padding: 0 4vw;
+	}
+	.img-hold-item {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+		background-color: #f5f5f5;
+	}
+	.img-hold-item img {
+		max-width: 100%;
+	}
+	.home-btn-group {
+		padding: 4vw 8vw 0;
+	}
+	.btn {
+		padding: 1.6vw 3.2vw;
+		font-size: 4vw;
+		line-height: 8.8vw;
+		border-radius: 5px;
+	}
+	.home-btn-group .btn-primary {
+		width: 100%;
+		color: #fff;
+		background: -moz-linear-gradient(-10deg, #4379ec 0%, #759df4 100%);
+		background: -webkit-linear-gradient(-10deg, #4379ec 0%, #759df4 100%);
+		background: -ms-linear-gradient(-10deg, #4379ec 0%, #759df4 100%);
+		background: linear-gradient(-10deg, #4379ec 0%, #759df4 100%);
+		box-shadow: 0 0.8vw 1.6vw 0 #4379ec;
 	}
 </style>
