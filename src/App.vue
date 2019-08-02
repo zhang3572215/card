@@ -30,4 +30,9 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
 }
+.cut-line {
+	flex: none;
+	width: 1px;
+	background-color: #ccc;
+}
 </style>

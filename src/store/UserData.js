@@ -9,10 +9,11 @@ export default {
       menuList: [{
         id: 1,
         text: '我的钱包',
-        path:'/home'
+        path:'/wallet'
       },{
         id: 2,
-        text: '余额充值'
+        text: '余额充值',
+        path:'/recharge'
       },{
         id: 3,
         text: '套餐订购'
@@ -25,7 +26,7 @@ export default {
       },{
         id: 6,
         text: '实名认证',
-        path:'/'
+        path:'/home'
       },{
         id: 7,
         text: '智能诊断'

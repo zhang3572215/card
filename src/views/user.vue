@@ -68,6 +68,7 @@ export default {
   }
 }
 </script>
+
 <style scoped>
 	.container {
 		width: 100%;
@@ -150,11 +151,6 @@ export default {
 	.user-info-key {
 		font-size: 3.2vw;
 		color: #999;
-	}
-	.cut-line {
-		flex: none;
-		width: 1px;
-		background-color: #ccc;
 	}
 	.color-unverify {
 		color: #fc6563;
