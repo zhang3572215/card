@@ -16,7 +16,8 @@ export default {
         path:'/recharge'
       },{
         id: 3,
-        text: '套餐订购'
+        text: '套餐订购',
+        path: '/set-meals'
       },{
         id: 4,
         text: '流量查询'
@@ -26,7 +27,7 @@ export default {
       },{
         id: 6,
         text: '实名认证',
-        path:'/home'
+        path:'/home'        
       },{
         id: 7,
         text: '智能诊断'

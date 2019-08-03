@@ -4,6 +4,7 @@ import HomeData from './store/HomeData'
 import UserData from './store/UserData'
 import WalletData from './store/WalletData'
 import RechargeData from './store/RechargeData'
+import SetMealList from './store/SetMealList'
 
 Vue.use(Vuex)
 
@@ -22,5 +23,6 @@ export default new Vuex.Store({
     userData:UserData,
     walletData:WalletData,
     rechargeData:RechargeData,
+    setMealList:SetMealList,
   }
 })

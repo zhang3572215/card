@@ -1,4 +1,4 @@
-<!-- login -->
+<!-- change card -->
 <template>
   <div class="inquire" :style="{backgroundImage:'url('+bg+')'}">
     <div  class='logo'>
@@ -77,7 +77,7 @@ export default {
     },
     checkCard: function (){
         // getCardCheck().then(res=>{
-            this.$router.push('/set-meal')
+            this.$router.push('/set-meals')
         // })
     }
   },

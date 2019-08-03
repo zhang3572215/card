@@ -31,6 +31,11 @@ export default new Router({
       path: '/recharge',
       name: 'recharge',
       component: resolve => require(['./views/recharge'],resolve) 
+    },
+    {
+      path: '/set-meals',
+      name: 'set-meals',
+      component: resolve => require(['./views/set-meals'],resolve) 
     }
   ]
 })
