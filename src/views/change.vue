@@ -77,7 +77,7 @@ export default {
     },
     checkCard: function (){
         // getCardCheck().then(res=>{
-            this.$router.push('')
+            this.$router.push('/set-meal')
         // })
     }
   },
