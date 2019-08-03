@@ -9,7 +9,7 @@
 		<div class="user-info-group">
 			<div class="user-info-title">
 				<span class="user-card-id">8986042241818C0090397
-					<span class="user-card-chg">切换卡号<i class="iconfont iconqiehuanzhanghao"></i></span>
+					<span class="user-card-chg" @click="$router.push('/change')">切换卡号<i class="iconfont iconqiehuanzhanghao"></i></span>
 				</span>
 			</div>
 			<div class="user-info-body">	

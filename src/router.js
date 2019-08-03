@@ -6,11 +6,16 @@ Vue.use(Router)
 export default new Router({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes: [   
+  routes: [
     {
       path: '/',
       name: 'user',
       component: resolve => require(['./views/user'],resolve) 
+    }, 
+    {
+      path: '/change',
+      name: 'change',
+      component: resolve => require(['./views/change'],resolve) 
     },
     {
       path: '/home',

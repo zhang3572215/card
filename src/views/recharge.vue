@@ -41,7 +41,7 @@ import {mapState,mapActions} from 'vuex'
 export default {
   data () {
     return {
-        isPayByBalance: true
+        isPayByBalance: true,
     };
   },
   computed: {
